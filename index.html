@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page d'accueil</title>
+    <!-- Lien vers le fichier CSS Tailwind -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+    <style>
+        /* Utilisation d'un thème sombre */
+        body {
+            background-color: #1F2937;
+            color: #E5E7EB;
+        }
+        /* Utilisation d'une police ressemblant à celle d'un terminal */
+        code {
+            font-family: 'Courier Prime', monospace;
+            background-color: #1A1B1E;
+            color: #F8F8F2;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-gray-700 py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-white text-3xl font-bold">Bienvenue sur mon site</h1>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-6">
+        <h2 class="text-2xl font-bold mb-4">À propos de moi</h2>
+        <p class="mb-4">Je suis un <code>développeur web</code> spécialisé dans le <code>PHP</code> et le framework <code>Symfony</code>. J'ai une passion pour la création d'applications web efficaces et durables qui répondent aux besoins de mes clients.</p>
+        <p class="mb-4">Je suis disponible pour des projets de développement web, du simple site vitrine aux applications web les plus complexes. N'hésitez pas à me contacter pour discuter de votre projet.</p>
+        <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
+            <a href="mailto:monadressemail@exemple.com">Contactez-moi</a>
+        </button>
+    </main>
+    <footer class="bg-gray-900 py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white">Copyright © 2022</p>
+        </div>
+    </footer>
+</body>
+</html>

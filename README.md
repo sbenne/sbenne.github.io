@@ -32,7 +32,7 @@ Je suis Sylvain BENNE, développeur web spécialisé dans le PHP et le framework
 ### Coordonnées
 ### Liens utiles
 #### React
-- [ReactRenderer]([https://devicon.dev/](https://github.com/Limenius/ReactRenderer/blob/master/README.md)) : Du SSR pour du React sous symfony 
+- [ReactRenderer](https://github.com/Limenius/ReactRenderer/blob/master/README.md) : Du SSR pour du React sous symfony 
 
 #### Webdesign
 - [devicon.dev](https://devicon.dev/) : une librairie css contenant les icônes des différents languages de programmation

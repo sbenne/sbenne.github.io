@@ -2,13 +2,19 @@
 
 ## Présentation
 ### À propos de moi
-Je suis Sylvain BENNE, développeur web spécialisé dans le PHP et le framework Symfony, j'ai acquis des compétences solides en informatique et en programmation. J'ai travaillé sur des projets variés allant de la création de sites web à la mise en place de systèmes d'automatisation de processus. Sur ce site, vous trouverez mon curriculum vitae ainsi que des informations sur mes compétences et mes projets en cours.
+Développeur web confirmé PHP/Symfony, j'ai acquis de solides compétences au travers de mes diverses éxperiences (solution de paiement, freelancing, scraping).
 
+J'ai travaillé sur des projets variés allant de la création de sites web à la mise en place de systèmes d'automatisation de processus. 
 
-
+Ici, vous trouverez mon curriculum vitae ainsi que diverses informations sur mes compétences et mes projets en cours.
 
 ### Mes compétences
+- PHP/Symfony
+- CSS/Bootstrap/Tailwind
+- JQuery/React
+  
 ### Mes réalisations
+- (freelance) Epaviste.fr
 
 ## Expérience professionnelle
 ### Entreprises et postes occupés
@@ -19,8 +25,7 @@ Je suis Sylvain BENNE, développeur web spécialisé dans le PHP et le framework
 ### Certifications professionnelles
 
 ## Projets personnels
-### Description des projets
-### Technologies utilisées
+
 
 ## Outils et technologies maîtrisées
 ### Langages de programmation

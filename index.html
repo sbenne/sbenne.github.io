@@ -1,46 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Page d'accueil</title>
-    <!-- Lien vers le fichier CSS Tailwind -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+    <title>CV Sylvain BENNE - Développeur Web</title>
     <style>
-        /* Utilisation d'un thème sombre */
-        body {
-            background-color: #1F2937;
-            color: #E5E7EB;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        /* Utilisation d'une police ressemblant à celle d'un terminal */
-        code {
-            font-family: 'Courier Prime', monospace;
-            background-color: #1A1B1E;
-            color: #F8F8F2;
-            padding: 0.2rem 0.4rem;
-            border-radius: 0.2rem;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+            background-color: #f7fafc;
+            line-height: 1.5;
+            padding: 40px 0;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 6px solid #2b6cb0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        /* Barre latérale gauche */
+        .sidebar {
+            background-color: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 40px 25px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a365d;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2b6cb0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .info-list {
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+
+        .info-list strong {
+            color: #4a5568;
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 0 4px 6px 0;
+            font-weight: 500;
+        }
+
+        /* Contenu principal droit */
+        .main-content {
+            padding: 40px 35px;
+        }
+
+        .summary {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 35px;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1a365d;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 6px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .job-company {
+            font-size: 13px;
+            color: #2b6cb0;
+            font-weight: 500;
+        }
+
+        .job-date {
+            font-size: 12px;
+            color: #718096;
+            white-space: nowrap;
+        }
+
+        .job-desc {
+            font-size: 13px;
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .job-details {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-details li {
+            font-size: 13px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            color: #4a5568;
+        }
+
+        .job-details li::before {
+            content: "•";
+            color: #2b6cb0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        /* Stratégie d'impression pour un rendu PDF propre */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-top: none;
+                grid-template-columns: 250px 1fr;
+            }
+            .sidebar {
+                background-color: #f8fafc !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .skill-tag {
+                background: #edf2f7 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="bg-gray-700 py-4">
-        <div class="container mx-auto px-4">
-            <h1 class="text-white text-3xl font-bold">Bienvenue sur mon site</h1>
+
+<div class="cv-container">
+    <aside class="sidebar">
+        <div class="profile-name">Sylvain BENNE</div>
+        <div class="profile-title">Développeur Web (10+ ans)</div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Contact</div>
+            <ul class="info-list">
+                <li><strong>Email</strong>allinonefrance@gmail.com</li>
+                <li><strong>Téléphone</strong>06 84 00 82 41</li>
+                <li><strong>Localisation</strong>Taverny (95150)</li>
+                <li><strong>Dispo</strong>Télétravail ou présentiel</li>
+            </ul>
         </div>
-    </header>
-    <main class="container mx-auto px-4 py-6">
-        <h2 class="text-2xl font-bold mb-4">À propos de moi</h2>
-        <p class="mb-4">Je suis un <code>développeur web</code> spécialisé dans le <code>PHP</code> et le framework <code>Symfony</code>. J'ai une passion pour la création d'applications web efficaces et durables qui répondent aux besoins de mes clients.</p>
-        <p class="mb-4">Je suis disponible pour des projets de développement web, du simple site vitrine aux applications web les plus complexes. N'hésitez pas à me contacter pour discuter de votre projet.</p>
-        <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
-            <a href="mailto:monadressemail@exemple.com">Contactez-moi</a>
-        </button>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Réseaux</div>
+            <ul class="info-list">
+                <li><strong>LinkedIn</strong>@sylvain-benne-symfony</li>
+                <li><strong>GitHub / Twitter</strong>@sbenne</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Langues</div>
+            <ul class="info-list">
+                <li>Français : Courant</li>
+                <li>Anglais : Intermédiaire</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Atouts</div>
+            <ul class="info-list" style="color: #4a5568; font-size: 13px;">
+                <li style="margin-bottom: 6px;">• Autonomie & curiosité</li>
+                <li style="margin-bottom: 6px;">• Gestion des priorités (Agile/Scrum)</li>
+                <li style="margin-bottom: 6px;">• Résilience au stress & réactivité</li>
+                <li style="margin-bottom: 6px;">• Force de proposition</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Outils & IDE</div>
+            <div class="skill-tag">PhpStorm</div>
+            <div class="skill-tag">PyCharm</div>
+            <div class="skill-tag">VIM</div>
+            <div class="skill-tag">GIMP</div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="summary">
+            De la conception d'applications métiers (Symfony/ElasticSearch/JavaScript) à la gestion d'infrastructures cloud (AWS), en passant par l'intégration e-commerce (Prestashop), j'allie rigueur technique et adaptabilité acquises à travers mon parcours d'autodidacte pour répondre à des besoins variés, du MVP au projet complexe.
+        </div>
+
+        <section style="margin-bottom: 35px;">
+            <div class="section-title">Compétences Techniques</div>
+            <div style="margin-bottom: 12px;">
+                <span style="font-size: 13px; font-weight: 600; color: #1a365d; display: block; margin-bottom: 4px;">Développement Web</span>
+                <div class="skill-tag">PHP</div>
+                <div class="skill-tag">Symfony</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">JavaScript (Natif / jQuery / React)</div>
+                <div class="skill-tag">Twig</div>
+                <div class="skill-tag">Bootstrap</div>
+                <div class="skill-tag">Tailwind</div>
+                <div class="skill-tag">XDebug</div>
+                <div class="skill-tag">GIT</div>
+                <div class="skill-tag">NPM / Yarn</div>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="font-size: 13px; font-weight: 600; color: #1a365d; display: block; margin-bottom: 4px;">Architecture, Cloud & Scraping</span>
+                <div class="skill-tag">Linux (Debian / Ubuntu)</div>
+                <div class="skill-tag">AWS (EC2, S3, Lambda)</div>
+                <div class="skill-tag">Python (Scrapy)</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">Vagrant</div>
+                <div class="skill-tag">BASH</div>
+            </div>
+            <div>
+                <span style="font-size: 13px; font-weight: 600; color: #1a365d; display: block; margin-bottom: 4px;">SEO & E-Commerce</span>
+                <div class="skill-tag">ElasticSearch</div>
+                <div class="skill-tag">Prestashop</div>
+                <div class="skill-tag">Microdata</div>
+                <div class="skill-tag">Standards W3C</div>
+                <div class="skill-tag">WAVE</div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Expériences Professionnelles</div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Fondateur / Développeur Full Stack</span> 
+                        <span class="job-company">- Projet personnel</span>
+                    </div>
+                    <div class="job-date">Depuis 2019</div>
+                </div>
+                <div class="job-desc">Detective Culinaire — Plateforme d'exploitation de données culinaires</div>
+                <ul class="job-details">
+                    <li>Développement Full Stack sous Symfony, PHP, JavaScript et MySQL.</li>
+                    <li>Conception de moteurs de recherche, de catégorisation et d'indexation de contenus culinaires via IA.</li>
+                    <li>Mise en place de pipelines d'automatisation pour la collecte, la normalisation et l'enrichissement de données.</li>
+                    <li>Optimisation SEO à grande échelle et génération de contenus orientés référencement naturel.</li>
+                    <li>Administration Linux, déploiement, supervision et maintenance de l'infrastructure serveur.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Développeur Web / AdminSys / Scraping</span> 
+                    </div>
+                    <div class="job-date">Mai 2016 – Avr. 2019</div>
+                </div>
+                <div class="job-desc">Retail Explorer / Data Solution (Paris / Aix-en-Provence)</div>
+                <ul class="job-details">
+                    <li>Évolution d'un rôle Front/Back vers la gestion complète du scraping de données (Java puis Python/Scrapy).</li>
+                    <li>Développement de tableaux de bord et outils de visualisation avancés (Symfony, jQuery, ElasticSearch).</li>
+                    <li>Gestion de l'infrastructure cloud sous AWS (EC2, S3, Lambda) et serveurs dédiés/VPS (Linux, BASH, Vagrant).</li>
+                    <li>Garant de la qualité du code : revues de code via GIT et tests unitaires (PHPUnit).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Consultant / Développeur Web & SEO</span> 
+                    </div>
+                    <div class="job-date">Mars 2011 – Janv. 2015</div>
+                </div>
+                <div class="job-desc">www.epaviste.fr (La Garenne-Colombes)</div>
+                <ul class="job-details">
+                    <li>Création complète du site web avec une forte optimisation SEO (microdata, temps de chargement).</li>
+                    <li>Intégration d'ElasticSearch pour la suggestion dynamique de villes et la gestion des zones d'interventions.</li>
+                    <li>Mise en place et maintenance d'une infrastructure serveur web sécurisée sous Debian (Nginx, MariaDB, SSL).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Développeur / Intégrateur Web (Freelance)</span> 
+                    </div>
+                    <div class="job-date">Sept. 2012 – Oct. 2013</div>
+                </div>
+                <div class="job-desc">BD Multimédia - www.starpass.fr (Paris)</div>
+                <ul class="job-details">
+                    <li>Intégration de solutions de micro-paiement en ligne par SMS (API Dineromail, High Connexion).</li>
+                    <li>Création de l'interface interactive de démonstration (JavaScript natif, jQuery) et internationalisation (getText).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div><span class="job-title">Missions d'Intégration & E-Commerce (Prestashop / Web)</span></div>
+                    <div class="job-date">2007 – 2012</div>
+                </div>
+                <ul class="job-details">
+                    <li><strong>www.thuy-avn.com (2011-2012) :</strong> Création complète d'une boutique Prestashop, intégration de maquettes, API de paiement (3D Secure, PayPal) et montage serveur Debian/Nginx.</li>
+                    <li><strong>www.visiofast.com (2011-2012) :</strong> Déploiement de boutique Prestashop, configuration de serveur Apache2/SSL et formation technique des équipes.</li>
+                    <li><strong>Confidentielles.com (2008-2009) :</strong> Intégration graphique sur forum phpBB, standardisation W3C/SEO et optimisation des espaces publicitaires.</li>
+                    <li><strong>Capgemini / ESSEC (2007) :</strong> Support d'intégration JavaScript cross-browser (Capgemini) et réalisation d'un site de rencontre par agenda partagé (ESSEC).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="margin-top: 30px;">
+            <div class="section-title">Diplômes & Formations</div>
+            <div class="education-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">BAC STI Électronique</span>
+                        <span class="job-company">- Lycée St Étienne (Cesson-Sévigné)</span>
+                    </div>
+                    <div class="job-date">2005 – 2006</div>
+                </div>
+                <div style="font-size: 13px; color: #4a5568;">
+                    Mention Assez Bien. Programmation Assembleur/APIC, création de circuit imprimé.
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="bg-gray-900 py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-white">Copyright © 2022</p>
-        </div>
-    </footer>
+</div>
+
 </body>
 </html>
